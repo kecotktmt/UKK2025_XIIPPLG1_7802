@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +26,7 @@ public class Profil extends AppCompatActivity {
     private Button Log;
     private TextView name, email;
     private String userId;
+    private ImageView bck;
     private static final String API_URL = "http://172.16.0.93/ukk/profil.php"; // Ganti dengan URL API Anda
 
     @Override
@@ -35,6 +37,15 @@ public class Profil extends AppCompatActivity {
         Log = findViewById(R.id.log);
         name = findViewById(R.id.txNama);
         email = findViewById(R.id.txEmail);
+        bck = findViewById(R.id.Back);
+
+        bck.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Profil.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
         SharedPreferences loginPrefs = getSharedPreferences("LoginPrefs", MODE_PRIVATE);
         userId = loginPrefs.getString("idL", null);
