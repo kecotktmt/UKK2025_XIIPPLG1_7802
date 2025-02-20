@@ -1,10 +1,10 @@
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-        android:background="@drawable/background"
-    tools:context=".Kategori">
+    android:background="@drawable/background"
+    tools:context=".Task">
 
     <!-- Judul -->
     <TextView
@@ -13,14 +13,14 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
-        android:text="Data Kategori"
+        android:text="Data Task"
         android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold" />
 
     <!-- Tombol "Tambah Pelanggan" -->
     <Button
-        android:id="@+id/btnTambahKategori"
+        android:id="@+id/btnTambahTask"
         android:layout_width="158dp"
         android:layout_height="36dp"
         android:layout_below="@id/titleTextView"
@@ -41,34 +41,36 @@
         android:id="@+id/swipeRefreshLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/btnTambahKategori"
+        android:layout_below="@id/btnTambahTask"
         android:layout_above="@id/bottom_navigation"
         android:layout_marginBottom="56dp"> <!-- Tambahkan margin agar tidak tertutup BottomNavigationView -->
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewPelanggan"
+            android:id="@+id/rvTasks"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="8dp" />
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-        <ImageView
-            android:id="@+id/Back"
-            android:layout_width="83dp"
-            android:layout_height="48dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="13dp"
-            app:srcCompat="@drawable/baseline_keyboard_backspace_24" />
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:background="?android:attr/windowBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottom_navigation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentBottom="true"
-            android:background="?android:attr/windowBackground"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:menu="@menu/bottom_nav_menu" />
-    </RelativeLayout>
+    <ImageView
+        android:id="@+id/history"
+        android:layout_width="45dp"
+        android:layout_height="44dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="356dp"
+        app:srcCompat="@drawable/baseline_history_24" />
+</RelativeLayout>

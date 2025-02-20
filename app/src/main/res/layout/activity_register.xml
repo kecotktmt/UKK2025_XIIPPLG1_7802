@@ -4,89 +4,93 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg2"
     tools:context=".Register">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="72dp"
-        android:text="REGISTER"
-        android:textSize="100px"
-        android:textStyle="bold" />
+        android:layout_centerInParent="true"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
+        android:padding="24dp"
+        android:background="@color/white">
 
-    <EditText
-        android:id="@+id/username"
-        android:layout_width="341dp"
-        android:layout_height="61dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="159dp"
-        android:hint="Username"
-        android:inputType="text" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
 
-    <EditText
-        android:id="@+id/password"
-        android:layout_width="341dp"
-        android:layout_height="61dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="239dp"
-        android:hint="Password"
-        android:inputType="textPassword" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="REGISTER"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginBottom="16dp"/>
 
-    <EditText
-        android:id="@+id/konpass"
-        android:layout_width="341dp"
-        android:layout_height="61dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="318dp"
-        android:hint="Konfimasi Password"
-        android:inputType="textPassword" />
+            <EditText
+                android:id="@+id/username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Username"
+                android:inputType="text"
+                android:layout_marginBottom="12dp"/>
 
-    <EditText
-        android:id="@+id/email"
-        android:layout_width="341dp"
-        android:layout_height="61dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="399dp"
-        android:hint="Email"
-        android:inputType="textEmailAddress" />
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:layout_marginBottom="12dp"/>
 
-    <EditText
-        android:id="@+id/nama"
-        android:layout_width="341dp"
-        android:layout_height="61dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="477dp"
-        android:hint="Nama"
-        android:inputType="text" />
+            <EditText
+                android:id="@+id/konpass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Konfirmasi Password"
+                android:inputType="textPassword"
+                android:layout_marginBottom="12dp"/>
 
-    <Button
-        android:id="@+id/regis"
-        android:layout_width="210dp"
-        android:layout_height="61dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="119dp"
-        android:backgroundTint="@color/black"
-        android:text="Register"
-        android:textColor="@color/white"
-        android:textSize="75px" />
+            <EditText
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:layout_marginBottom="12dp"/>
+
+            <EditText
+                android:id="@+id/nama"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nama"
+                android:inputType="text"
+                android:layout_marginBottom="16dp"/>
+
+            <Button
+                android:id="@+id/regis"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/black"
+                android:text="Register"
+                android:textColor="@color/white"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
     <TextView
         android:id="@+id/login"
         android:layout_width="wrap_content"
-        android:layout_height="100px"
-        android:layout_alignParentBottom="true"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cardView"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="69dp"
+        android:layout_marginTop="16dp"
         android:text="Already have an account? Sign in"
+        android:textSize="16sp"
         android:textAlignment="center"
-        android:textSize="50px" />
-
+        android:textColor="@color/white"/>
 </RelativeLayout>

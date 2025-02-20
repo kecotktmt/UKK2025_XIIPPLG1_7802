@@ -17,6 +17,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -64,6 +65,25 @@ public class Profil extends AppCompatActivity {
             public void onClick(View v) {
                 logout(); // Panggil metode logout
             }
+        });
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setSelectedItemId(R.id.nav_profil);
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            if (item.getItemId() == R.id.nav_home) {
+                startActivity(new Intent(Profil.this, MainActivity.class));
+                finish();
+                return true;
+            } else if (item.getItemId() == R.id.nav_kategori) {
+                startActivity(new Intent(Profil.this, Kategori.class));
+                finish();
+                return true;
+            } else if (item.getItemId() == R.id.nav_task) {
+                startActivity(new Intent(Profil.this, Task.class));
+                finish();
+                return true;
+            }
+            return false;
         });
     }
 

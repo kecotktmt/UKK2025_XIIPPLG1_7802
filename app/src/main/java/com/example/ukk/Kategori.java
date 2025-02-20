@@ -21,6 +21,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.json.JSONObject;
 
@@ -83,6 +84,25 @@ public class Kategori extends AppCompatActivity {
         });
 
         loadData();
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setSelectedItemId(R.id.nav_kategori);
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            if (item.getItemId() == R.id.nav_home) {
+                startActivity(new Intent(Kategori.this, MainActivity.class));
+                finish();
+                return true;
+            } else if (item.getItemId() == R.id.nav_task) {
+                startActivity(new Intent(Kategori.this, Task.class));
+                finish();
+                return true;
+            } else if (item.getItemId() == R.id.nav_profil) {
+                startActivity(new Intent(Kategori.this, Profil.class));
+                finish();
+                return true;
+            }
+            return false;
+        });
 
     }
 

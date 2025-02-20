@@ -2,11 +2,14 @@ package com.example.ukk;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,27 +17,35 @@ public class MainActivity extends AppCompatActivity {
 
     private Button kat;
 
+    BottomNavigationView bottomNavigationView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        prf = findViewById(R.id.Profil);
-        kat = findViewById(R.id.Cat);
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
 
-        prf.setOnClickListener(new View.OnClickListener() {
+        bottomNavigationView.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, Profil.class);
-                startActivity(intent);
-            }
-        });
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int itemId = item.getItemId();
 
-        kat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, Kategori.class);
-                startActivity(intent);
+                if (itemId == R.id.nav_home) {
+                    startActivity(new Intent(MainActivity.this, MainActivity.class));
+                    return true;
+                } else if (itemId == R.id.nav_kategori) {
+                    startActivity(new Intent(MainActivity.this, Kategori.class));
+                    return true;
+                } else if (itemId == R.id.nav_task) {
+                    startActivity(new Intent(MainActivity.this, Task.class));
+                    return true;
+                } else if (itemId == R.id.nav_profil) {
+                    startActivity(new Intent(MainActivity.this, Profil.class));
+                    return true;
+                }
+
+                return false;
             }
         });
     }
